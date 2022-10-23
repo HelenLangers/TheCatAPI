@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons'
 import { faThumbsDown } from '@fortawesome/free-regular-svg-icons'
 
-const OneCat = ({ cat, getVotes }) => {
+const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
 
     const addVote = (cat) => {
         fetch("https://api.thecatapi.com/v1/votes", {
@@ -14,10 +14,26 @@ const OneCat = ({ cat, getVotes }) => {
             },
             body: JSON.stringify({
                 "image_id": cat.id,
-                "sub_id": "user-1",
+                "sub_id": "user-2",
                 "value": 1
             })
         })
+            .then(fetch("https://api.thecatapi.com/v1/votes?sub_id=user-2&order=DESC", {
+                method: 'GET',
+                header: { "Content-Type": "application/json;charset=utf-8","x-api-key": "live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3" }
+            })
+                .then(res => res.json())
+                .then((data) => {
+                    const copyOfTwentyCats = [...twentyCats];
+                    copyOfTwentyCats.forEach((cat) => {
+                        data.forEach((vote) => {
+                            if (cat.id == vote.image_id) {
+                                cat.votes += vote.value
+                            }
+                        })
+                        setTwentyCats(copyOfTwentyCats);
+                    })
+                }))
             .catch(err => console.log('Error', err))
     };
 
@@ -30,10 +46,26 @@ const OneCat = ({ cat, getVotes }) => {
             },
             body: JSON.stringify({
                 "image_id": cat.id,
-                "sub_id": "user-1",
+                "sub_id": "user-2",
                 "value": -1
             })
         })
+            .then(fetch("https://api.thecatapi.com/v1/votes?sub_id=user-2&order=DESC", {
+                method: 'GET',
+                header: { "Content-Type": "application/json;charset=utf-8","x-api-key": "live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3" }
+            })
+                .then(res => res.json())
+                .then((data) => {
+                    const copyOfTwentyCats = [...twentyCats];
+                    copyOfTwentyCats.forEach((cat) => {
+                        data.forEach((vote) => {
+                            if (cat.id == vote.image_id) {
+                                cat.votes += vote.value
+                            }
+                        })
+                        setTwentyCats(copyOfTwentyCats);
+                    })
+                }))
             .catch(err => console.log('Error', err))
     }
 
@@ -43,10 +75,6 @@ const OneCat = ({ cat, getVotes }) => {
 
     const handleVoteDownClick = () => {
         removeVote(cat);
-    }
-
-    const handleGetVotes = () => {
-        getVotes()
     }
 
     return (
@@ -64,7 +92,6 @@ const OneCat = ({ cat, getVotes }) => {
                 <button className='voting-buttons' onClick={handleVoteDownClick}>
                     <FontAwesomeIcon icon={faThumbsDown} size="2x" className="thumbdown" />
                 </button>
-                <button onClick={handleGetVotes} className='voting-buttons'/>
             </div>
         </div>
     )
