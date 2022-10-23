@@ -18,9 +18,9 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
                 "value": 1
             })
         })
-            .then(fetch("https://api.thecatapi.com/v1/votes?sub_id=user-2&order=DESC", {
+            .then(fetch("https://api.thecatapi.com/v1/votes?&sub_id=user-2&order=DESC", {
                 method: 'GET',
-                header: { "Content-Type": "application/json;charset=utf-8","x-api-key": "live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3" }
+                headers: { "Content-Type": "application/json;charset=utf-8","x-api-key": "live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3" }
             })
                 .then(res => res.json())
                 .then((data) => {
@@ -52,7 +52,7 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
         })
             .then(fetch("https://api.thecatapi.com/v1/votes?sub_id=user-2&order=DESC", {
                 method: 'GET',
-                header: { "Content-Type": "application/json;charset=utf-8","x-api-key": "live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3" }
+                headers: { "Content-Type": "application/json;charset=utf-8","x-api-key": "live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3" }
             })
                 .then(res => res.json())
                 .then((data) => {
