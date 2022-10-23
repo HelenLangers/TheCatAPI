@@ -13,7 +13,7 @@ function App() {
   const loadTwentyCats = () => {
     fetch("https://api.thecatapi.com/v1/images/search?api_key=live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3&limit=20&order=DESC", {
         method: 'GET',
-        header: {"x-api-key": config.api_key}
+        header: {"x-api-key": "live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3"}
         })
     .then(res => res.json())
     .then((data) => {
@@ -29,7 +29,7 @@ function App() {
 
   return (
     <div className="App">
-
+      <CatGrid twentyCats={twentyCats}/>
     </div>
   );
 }
