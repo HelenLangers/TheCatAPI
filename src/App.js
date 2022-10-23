@@ -25,14 +25,30 @@ function App() {
         return cat;
       })
       setTwentyCats(modifiedData)
-      // console.log(modifiedData)
     })
     .catch(err => console.log('Error', err));
   }
 
+  const getVotes = () => {
+    fetch("https://api.thecatapi.com/v1/votes?api_key=live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3&sub_id=user-1&order=DESC", {
+      method: 'GET',
+      header: {"x-api-key": "live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3"}
+      })
+    .then(res => res.json())
+    .then ((data) => {
+      const copyOfTwentyCats = [...twentyCats];
+      copyOfTwentyCats.forEach((cat) => { 
+        data.forEach((vote) => {
+        if(cat.id == vote.image_id){
+          cat.votes += vote.value
+        }})
+        setTwentyCats(copyOfTwentyCats);
+      })})
+    .catch(err => console.log('Error', err))}
+
   return (
     <div className="App">
-      <CatGrid twentyCats={twentyCats}/>
+      <CatGrid twentyCats={twentyCats} getVotes={getVotes}/>
     </div>
   );
 }
