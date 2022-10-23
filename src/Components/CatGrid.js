@@ -1,8 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-function CatGrid() {
+const CatGrid = ({twentyCats}) => {
+
+if (!twentyCats) return <p>loading...</p>;
+
   return (
-    <div>CatGrid</div>
+    <section className="cat-grid">
+        {twentyCats.map((cat, id) => (
+            <OneCat key={id} cat={cat} />
+        ))}
+    </section>
   )
 }
 
