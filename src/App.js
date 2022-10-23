@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import config from './config';
 
 
 function App() {
@@ -10,9 +11,9 @@ function App() {
   }, [])
 
   const loadTwentyCats = () => {
-    fetch("https://api.thecatapi.com/v1/images/search?limit=20&order=DESC", {
+    fetch("https://api.thecatapi.com/v1/images/search?api_key=live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3&limit=20&order=DESC", {
         method: 'GET',
-        header: {"x-api-key": env.API_KEY}
+        header: {"x-api-key": config.api_key}
         })
     .then(res => res.json())
     .then((data) => {
@@ -22,7 +23,6 @@ function App() {
       })
       setTwentyCats(modifiedData)
       console.log(modifiedData)
-      console.log(env.API_KEY)
     })
     .catch(err => console.log('Error', err));
   }
