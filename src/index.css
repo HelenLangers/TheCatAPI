@@ -34,6 +34,16 @@ body {
   margin: 0;
 }
 
+.footer {
+  height: 4rem;
+  bottom: 0;
+  background-color: var(--primary-dark);
+  color: var(--neutral-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .cat-grid {
   display: flex;
   flex-wrap: wrap;

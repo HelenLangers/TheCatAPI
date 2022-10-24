@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import CatGrid from './Components/CatGrid';
+import { Footer } from './Components/Footer';
 import { Header } from './Components/Header';
 
 
@@ -33,6 +34,7 @@ function App() {
     <div className="App">
       <Header/>
       <CatGrid twentyCats={twentyCats} setTwentyCats={setTwentyCats}/>
+      <Footer/>
     </div>
   );
 }
