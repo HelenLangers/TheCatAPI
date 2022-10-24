@@ -6,30 +6,33 @@ import { faThumbsDown } from '@fortawesome/free-regular-svg-icons'
 
 const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
 
+    const getVoteURL = "https://api.thecatapi.com/v1/votes?sub_id=user-2&limit=1&order=DESC"
+    const fetchHeaders = {
+        "Content-Type": "application/json;charset=utf-8",
+        "x-api-key": config.api_key
+    }
+
+
     const addVote =  async (cat) => {
         try {
         await fetch("https://api.thecatapi.com/v1/votes", {
             method: 'POST',
-            headers: {
-                "Content-Type": "application/json;charset=utf-8",
-                "x-api-key": config.api_key
-            },
+            headers: fetchHeaders,
             body: JSON.stringify({
                 "image_id": cat.id,
                 "sub_id": "user-2",
                 "value": 1
             })
         })
-        await fetch("https://api.thecatapi.com/v1/votes?sub_id=user-2&limit=1&order=DESC", {
+        const response = await fetch(getVoteURL, {
             method: 'GET',
-            headers: { 
-                "Content-Type": "application/json;charset=utf-8",
-                "x-api-key": config.api_key 
-            },
+            headers: fetchHeaders,
         })
-            .then(res => res.json())
-            .then((data) => {
-                const copyOfTwentyCats = [...twentyCats];
+        if (!response.ok){
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+        const data = await response.json()
+        const copyOfTwentyCats = [...twentyCats];
                 copyOfTwentyCats.forEach((cat) => {
                     data.forEach((vote) => {
                         if (cat.id === vote.image_id) {
@@ -38,35 +41,30 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
                     })
                     setTwentyCats(copyOfTwentyCats);
                 })
-            })
         }
         catch(err){console.log('Error', err)}}
-
+        
 
     const removeVote =  async (cat) => {
         try {
         await fetch("https://api.thecatapi.com/v1/votes", {
             method: 'POST',
-            headers: {
-                "Content-Type": "application/json;charset=utf-8",
-                "x-api-key": config.api_key
-            },
+            headers: fetchHeaders,
             body: JSON.stringify({
                 "image_id": cat.id,
                 "sub_id": "user-2",
                 "value": -1
             })
         })
-        await fetch("https://api.thecatapi.com/v1/votes?sub_id=user-2&limit=1&order=DESC", {
+        const response = await fetch(getVoteURL, {
             method: 'GET',
-            headers: { 
-                "Content-Type": "application/json;charset=utf-8",
-                "x-api-key": config.api_key 
-            },
+            headers: fetchHeaders,
         })
-            .then(res => res.json())
-            .then((data) => {
-                const copyOfTwentyCats = [...twentyCats];
+        if (!response.ok){
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+        const data = await response.json()
+        const copyOfTwentyCats = [...twentyCats];
                 copyOfTwentyCats.forEach((cat) => {
                     data.forEach((vote) => {
                         if (cat.id === vote.image_id) {
@@ -75,7 +73,6 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
                     })
                     setTwentyCats(copyOfTwentyCats);
                 })
-            })
         }
         catch(err){console.log('Error', err)}}
 
