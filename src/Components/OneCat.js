@@ -1,4 +1,5 @@
 import React from 'react'
+import config from '../config'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons'
 import { faThumbsDown } from '@fortawesome/free-regular-svg-icons'
@@ -11,7 +12,7 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json;charset=utf-8",
-                "x-api-key": "live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3"
+                "x-api-key": config.api_key
             },
             body: JSON.stringify({
                 "image_id": cat.id,
@@ -23,7 +24,8 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
             method: 'GET',
             headers: { 
                 "Content-Type": "application/json;charset=utf-8",
-                "x-api-key": "live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3" }
+                "x-api-key": config.api_key 
+            },
         })
             .then(res => res.json())
             .then((data) => {
@@ -47,7 +49,7 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json;charset=utf-8",
-                "x-api-key": "live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3"
+                "x-api-key": config.api_key
             },
             body: JSON.stringify({
                 "image_id": cat.id,
@@ -59,7 +61,8 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
             method: 'GET',
             headers: { 
                 "Content-Type": "application/json;charset=utf-8",
-                "x-api-key": "live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3" }
+                "x-api-key": config.api_key 
+            },
         })
             .then(res => res.json())
             .then((data) => {
