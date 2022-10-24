@@ -18,23 +18,6 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
                 "value": 1
             })
         })
-            .then(fetch("https://api.thecatapi.com/v1/votes?&sub_id=user-2&limit=1&order=DESC", {
-                method: 'GET',
-                headers: { "Content-Type": "application/json;charset=utf-8","x-api-key": "live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3" }
-            })
-                .then(res => res.json())
-                .then((data) => {
-                    const copyOfTwentyCats = [...twentyCats];
-                    copyOfTwentyCats.forEach((cat) => {
-                        data.forEach((vote) => {
-                            if (cat.id === vote.image_id) {
-                                cat.votes += vote.value
-                            }
-                        })
-                        setTwentyCats(copyOfTwentyCats);
-                    })
-                }))
-            .catch(err => console.log('Error', err))
     };
 
     const removeVote = (cat) => {
@@ -50,32 +33,38 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
                 "value": -1
             })
         })
-            .then(fetch("https://api.thecatapi.com/v1/votes?sub_id=user-2&limit=1&order=DESC", {
-                method: 'GET',
-                headers: { "Content-Type": "application/json;charset=utf-8","x-api-key": "live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3" }
-            })
-                .then(res => res.json())
-                .then((data) => {
-                    const copyOfTwentyCats = [...twentyCats];
-                    copyOfTwentyCats.forEach((cat) => {
-                        data.forEach((vote) => {
-                            if (cat.id === vote.image_id) {
-                                cat.votes += vote.value
-                            }
-                        })
-                        setTwentyCats(copyOfTwentyCats);
-                    })
-                }))
-            .catch(err => console.log('Error', err))
+    }
+
+    const getVotes = () => {
+        fetch("https://api.thecatapi.com/v1/votes?sub_id=user-2&limit=1&order=DESC", {
+            method: 'GET',
+            headers: { 
+                "Content-Type": "application/json;charset=utf-8",
+                "x-api-key": "live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3" }
+        })
+            .then(res => res.json())
     }
 
     const handleVoteUpClick = () => {
-        addVote(cat);
+        Promise.all(addVote(cat), getVotes())
+        .then((data) => {
+            const copyOfTwentyCats = [...twentyCats];
+            copyOfTwentyCats.forEach((cat) => {
+                data.forEach((vote) => {
+                    if (cat.id === vote.image_id) {
+                        cat.votes += vote.value
+                    }
+                })
+                setTwentyCats(copyOfTwentyCats);
+            })
+        })
+        .catch(err => console.log('Error', err))
     }
 
     const handleVoteDownClick = () => {
         removeVote(cat);
     }
+
 
     return (
         <div className='one-cat-block'>
@@ -84,6 +73,7 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
             </div>
             <div className='overall-score'>
                 <p>Score: {cat.votes}</p>
+                <p>Score: {cat.id}</p>
             </div>
             <div className='voting-buttons-container'>
                 <button className='voting-buttons' onClick={handleVoteUpClick}>
