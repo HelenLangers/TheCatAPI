@@ -1,5 +1,4 @@
 import {useState, useEffect} from 'react';
-import config from './config';
 import CatGrid from './Components/CatGrid';
 
 
