@@ -92,7 +92,7 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
     return (
         <div className='one-cat-block'>
             <div className='image-container'>
-                <img className='image' src={cat.url} />
+                <img className='image' src={cat.url} alt="cute cat"/>
             </div>
             <div className='overall-score'>
                 <p>Score: {cat.votes}</p>
