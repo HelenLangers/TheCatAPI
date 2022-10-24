@@ -66,6 +66,7 @@ Scoring the Cats
 ### Notes
 - [ ] Whilst Redux is a much better state management tool for React, the demands of still being in full time education at CodeClan necessitate me to implement useContext here as it's something that I already know how to use.
 - [ ] I have placed my API key in a git-ignored config file here. I contemplated making the API calls in a server.js using node-fetch but the API has CORS enabled so decided to keep it client side.
+- [ ] I have started self-teaching about accessibility and have implemented some aria labels and tab indexes here.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
