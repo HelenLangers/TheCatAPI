@@ -77,7 +77,6 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
         catch(err){console.log('Error', err)}}
 
 
-
     const handleVoteUpClick = () => {
         addVote(cat)
     }
@@ -94,7 +93,6 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
             </div>
             <div className='overall-score'>
                 <p>Score: {cat.votes}</p>
-                <p>Score: {cat.id}</p>
             </div>
             <div className='voting-buttons-container'>
                 <button className='voting-buttons' onClick={handleVoteUpClick}>

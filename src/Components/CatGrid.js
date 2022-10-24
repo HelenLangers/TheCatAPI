@@ -3,7 +3,7 @@ import OneCat from './OneCat';
 
 const CatGrid = ({twentyCats, setTwentyCats}) => {
 
-if (!twentyCats) return <p>loading...</p>;
+if (!twentyCats) return <p>Please wait a meowment …</p>;
 
   return (
     <section className="cat-grid">

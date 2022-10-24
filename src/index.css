@@ -19,6 +19,21 @@ body {
   box-sizing: border-box;
 }
 
+.header {
+  height: 100px;
+  text-align: center;
+  background-color: var(--primary-dark);
+  color: var(--neutral-light);
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+}
+
 .cat-grid {
   display: flex;
   flex-wrap: wrap;
