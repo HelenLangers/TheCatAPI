@@ -1,8 +1,9 @@
 import {useState, useEffect} from 'react';
+import config from './config'
 import CatGrid from './Components/CatGrid';
 import Footer from './Components/Footer';
 import Header from './Components/Header';
-import CatContext from './Components/Context/CatContext';
+import CatContext from './Context/CatContext';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
         method: 'GET',
         headers: {
           "Content-Type": "application/json;charset=utf-8",
-          "x-api-key": "live_7rTfVO1Ar85eGX2Fa5CSCBHE1OZR0FmF6lE3C5jASWqiOmzwWAdO0ky9FHQEq0A3"}
+          "x-api-key": config.api_key}
         })
     .then(res => res.json())
     .then((data) => {
@@ -35,7 +36,7 @@ function App() {
     <>
       <Header/>
       <CatContext.Provider value={{twentyCats, setTwentyCats}}>
-        <CatGrid />
+        <CatGrid setTwentyCats={setTwentyCats}/>
       </CatContext.Provider>
       <Footer/>
     </>

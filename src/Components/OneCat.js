@@ -3,7 +3,7 @@ import config from '../config'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons'
 import { faThumbsDown } from '@fortawesome/free-regular-svg-icons'
-import CatContext from './Context/CatContext'
+import CatContext from '../Context/CatContext'
 
 const OneCat = ({ cat }) => {
 
@@ -13,7 +13,6 @@ const OneCat = ({ cat }) => {
         "Content-Type": "application/json;charset=utf-8",
         "x-api-key": config.api_key
     }
-
 
     const addVote =  async (cat) => {
         try {

@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import OneCat from './OneCat';
-import CatContext from './Context/CatContext';
+import CatContext from '../Context/CatContext';
 
 const CatGrid = () => {
 
