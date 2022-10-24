@@ -6,11 +6,11 @@ const CatGrid = ({twentyCats, setTwentyCats}) => {
 if (!twentyCats) return <p>Please wait a meowment …</p>;
 
   return (
-    <section className="cat-grid">
+    <main className="cat-grid">
         {twentyCats.map((cat, id) => (
             <OneCat key={id} cat={cat} twentyCats={twentyCats} setTwentyCats={setTwentyCats}/>
         ))}
-    </section>
+    </main>
   )
 }
 
