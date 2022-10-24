@@ -1,7 +1,8 @@
 import {useState, useEffect} from 'react';
 import CatGrid from './Components/CatGrid';
-import { Footer } from './Components/Footer';
-import { Header } from './Components/Header';
+import Footer from './Components/Footer';
+import Header from './Components/Header';
+import CatContext from './Components/Context/CatContext';
 
 
 function App() {
@@ -31,11 +32,13 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <>
       <Header/>
-      <CatGrid twentyCats={twentyCats} setTwentyCats={setTwentyCats}/>
+      <CatContext.Provider value={{twentyCats, setTwentyCats}}>
+        <CatGrid />
+      </CatContext.Provider>
       <Footer/>
-    </div>
+    </>
   );
 }
 

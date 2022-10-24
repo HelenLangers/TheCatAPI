@@ -1,12 +1,14 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import config from '../config'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons'
 import { faThumbsDown } from '@fortawesome/free-regular-svg-icons'
+import CatContext from './Context/CatContext'
 
-const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
+const OneCat = ({ cat }) => {
 
-    const getVoteURL = "https://api.thecatapi.com/v1/votes?sub_id=user-2&limit=1&order=DESC"
+    const {twentyCats, setTwentyCats} = useContext(CatContext)
+    const getVoteURL = "https://api.thecatapi.com/v1/votes?sub_id=user123&limit=1&order=DESC"
     const fetchHeaders = {
         "Content-Type": "application/json;charset=utf-8",
         "x-api-key": config.api_key
@@ -20,7 +22,7 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
             headers: fetchHeaders,
             body: JSON.stringify({
                 "image_id": cat.id,
-                "sub_id": "user-2",
+                "sub_id": "user123",
                 "value": 1
             })
         })
@@ -33,14 +35,14 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
         }
         const data = await response.json()
         const copyOfTwentyCats = [...twentyCats];
-                copyOfTwentyCats.forEach((cat) => {
-                    data.forEach((vote) => {
-                        if (cat.id === vote.image_id) {
-                            cat.votes += vote.value
-                        }
-                    })
-                    setTwentyCats(copyOfTwentyCats);
-                })
+        copyOfTwentyCats.forEach((cat) => {
+            data.forEach((vote) => {
+                if (cat.id === vote.image_id) {
+                    cat.votes += vote.value
+                }
+            })
+            setTwentyCats(copyOfTwentyCats);
+            })
         }
         catch(err){console.log('Error', err)}}
         
@@ -52,7 +54,7 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
             headers: fetchHeaders,
             body: JSON.stringify({
                 "image_id": cat.id,
-                "sub_id": "user-2",
+                "sub_id": "user123",
                 "value": -1
             })
         })
@@ -65,14 +67,14 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
         }
         const data = await response.json()
         const copyOfTwentyCats = [...twentyCats];
-                copyOfTwentyCats.forEach((cat) => {
-                    data.forEach((vote) => {
-                        if (cat.id === vote.image_id) {
-                            cat.votes += vote.value
-                        }
-                    })
-                    setTwentyCats(copyOfTwentyCats);
-                })
+        copyOfTwentyCats.forEach((cat) => {
+            data.forEach((vote) => {
+                if (cat.id === vote.image_id) {
+                    cat.votes += vote.value
+                }
+            })
+            setTwentyCats(copyOfTwentyCats);
+        })
         }
         catch(err){console.log('Error', err)}}
 
