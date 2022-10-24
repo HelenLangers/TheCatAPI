@@ -17,6 +17,7 @@
       <a href="#about-the-project">About The App</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
       </ul>
     </li>
     <li>
@@ -37,14 +38,14 @@
 
 The acceptance criteria provided for me:
 
-* Listing the Cats
+Listing the Cats
 - Create a page at "/" that lists the first 20 cat images, in descending order.
 - Display in a responsive way, up to a maximum of 4 cat images per row, it should neatly scale down to 340px wide viewport and ensure images are not stretched.
 
-* Voting the Cats
+Voting the Cats
 - On the listing at "/" add a "vote up" and "vote down" button below each of the cat images that calls the API saving the vote made on the Cat.
 
-* Scoring the Cats
+Scoring the Cats
 - Display the score for each cat below the image using the API endpoint. The score is equal to (number of up votes - number of down votes).
 
 
@@ -61,6 +62,13 @@ The acceptance criteria provided for me:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- NOTES -->
+### Notes
+- [ ] Whilst Redux is a much better state management tool for React, the demands of still being in full time education at CodeClan necessitate me to implement useContext here as it's something that I already know how to use.
+- [ ] 
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- GETTING STARTED -->
@@ -95,7 +103,7 @@ The acceptance criteria provided for me:
 <!-- CONTACT -->
 ## Contact
 
-Helen Langridge - [Twitter](https://twitter.com/HelenCycling) - [LinkedIn](https://www.linkedin.com/in/helen-langridge-62b32b166/) - [Personal Website](helenlangridge.com)
+Helen Langridge - [Twitter](https://twitter.com/HelenCycling) - [LinkedIn](https://www.linkedin.com/in/helen-langridge-62b32b166/) - [Personal Website](https://www.helenlangridge.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
