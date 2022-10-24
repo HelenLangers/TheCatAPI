@@ -88,11 +88,11 @@ const OneCat = ({ cat }) => {
 
 
     return (
-        <div className='one-cat-block'>
+        <div aria-label="cat image and voting block" className='one-cat-block'>
             <div className='image-container'>
                 <img className='image' src={cat.url} alt="cute cat"/>
             </div>
-            <div className='overall-score'>
+            <div aria-label="current score" className='overall-score'>
                 <p>Score: {cat.votes}</p>
             </div>
             <div className='voting-buttons-container'>

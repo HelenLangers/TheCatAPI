@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+<a name="readme-top"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- PROJECT NAME -->
+<h3 align="center">The Cat Gallery</h3>
 
-## Available Scripts
+  <p align="center">
+    A technical challenge using theCatAPI.com
+  </p>
+</div>
 
-In the project directory, you can run:
 
-### `npm start`
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The App</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+<!-- ABOUT THE App -->
+# About The App
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The acceptance criteria provided for me:
 
-### `npm run build`
+* Listing the Cats
+- Create a page at "/" that lists the first 20 cat images, in descending order.
+- Display in a responsive way, up to a maximum of 4 cat images per row, it should neatly scale down to 340px wide viewport and ensure images are not stretched.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Voting the Cats
+- On the listing at "/" add a "vote up" and "vote down" button below each of the cat images that calls the API saving the vote made on the Cat.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Scoring the Cats
+- Display the score for each cat below the image using the API endpoint. The score is equal to (number of up votes - number of down votes).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Built With
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* HTML
+* CSS
+* Javascript
+* React (useState, useEffect, useContext)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+<!-- GETTING STARTED -->
+## Getting Started
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Clone the repo
+    ```sh
+    git clone git@github.com:HelenLangers/TheCatApi.git
+    ```
+2. Install dependencies
+    ```sh
+    npm i
+    ```
+3. Create a config.js file in the src folder and enter your api key:
+    ```sh
+    const config = {
+    api_key: {your thecatapi api key here}
+    }
+    export default config
+    ```
+4. Start the app
+    ```sh
+    npm start
+    ```
+5. View the app at localhost:3000 if it doesns't automatically open.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<!-- CONTACT -->
+## Contact
 
-### Advanced Configuration
+Helen Langridge - [Twitter](https://twitter.com/HelenCycling) - [LinkedIn](https://www.linkedin.com/in/helen-langridge-62b32b166/) - [Personal Website](helenlangridge.com)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* [theCatAPI](https://thecatapi.com/)
+* [FontAwesome](https://fontawesome.com/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
