@@ -98,10 +98,10 @@ const OneCat = ({ cat, twentyCats, setTwentyCats }) => {
                 <p>Score: {cat.votes}</p>
             </div>
             <div className='voting-buttons-container'>
-                <button className='voting-buttons' onClick={handleVoteUpClick}>
+                <button aria-label="vote up" className='voting-buttons' onClick={handleVoteUpClick}>
                     <FontAwesomeIcon icon={faThumbsUp} size="2x" className="thumbup" />
                 </button>
-                <button className='voting-buttons' onClick={handleVoteDownClick}>
+                <button aria-label="vote down" className='voting-buttons' onClick={handleVoteDownClick}>
                     <FontAwesomeIcon icon={faThumbsDown} size="2x" className="thumbdown" />
                 </button>
             </div>
